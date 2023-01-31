@@ -3,10 +3,20 @@
  const versesContainer = document.querySelector('#verses-container')
  const bookNameBible = document.querySelector('#book-name')
  const chapterBibleNumber = document.querySelector('#chapter')
+ const formSearch = document.querySelector('[data-js="form-search"]') 
 
  const getBook = async (bookName, chapter) => {
-   const response = await fetch(`https://www.abibliadigital.com.br/api/verses/ra/${bookName}/${chapter}`)
-   return await response.json()
+  try{
+    const response = await fetch(`https://www.abibliadigital.com.br/api/verses/ra/${bookName}/${chapter}`)
+    
+    if(!response.ok){
+      throw new Error('Não foi possível obter os dados.')
+    }
+    
+    return response.json()
+  } catch(error){
+    alert(error.message)
+  }
  }
 
  const addVersesIntoDOM = async (bookName, chapterNumber) => {
@@ -21,4 +31,14 @@
      versesContainer.innerHTML += versesTemplate
  }
 
- addVersesIntoDOM('lc', '1')
+ 
+ formSearch.addEventListener('submit', event => {
+   event.preventDefault()
+   
+   const inputBook = event.target.book.value
+   const inputChapter = event.target.chapter.value
+   
+   addVersesIntoDOM(inputBook, inputChapter)
+   
+   formSearch.reset()
+ })
