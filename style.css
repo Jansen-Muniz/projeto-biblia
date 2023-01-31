@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container-book-name, .container-chapter{
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+#book-name{
+  text-transform: uppercase;
+}
+
+#verses-container{
+  margin: 0 10rem;
+}
+
+span, p{
+  margin: 1rem;
+}
