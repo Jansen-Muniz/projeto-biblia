@@ -17,8 +17,8 @@
          `<p><span>${item.number} </span>${item.text}</p>`).join('')
   
      bookNameBible.textContent = book.name
-     chapterBibleNumber.textContent = chapter.number
+     chapterBibleNumber.textContent = `Capítulo ${chapter.number}`
      versesContainer.innerHTML += versesTemplate
  }
 
- addVersesIntoDOM('ex', '1')
+ addVersesIntoDOM('lc', '1')

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,33 @@
   <link rel="stylesheet" href="./style.css">
   <title>Document</title>
 </head>
+
 <body>
-  <div class="container-book-name">
-    <h1 id="book-name"></h1>
+  <div class="bible-container">
+    <form data-js="form-search">
+      <div class="search-book-container">
+        <div class="search-title">
+          <h1>Busque um livro da Bíblia</h1>
+        </div>
+        <div class="inputs-container">
+          <label for="input-book">Livro</label>
+          <input id="input-book" type="text" placeholder="ex: gn" autofocus>
+          <label for="input-chapter-number">Capítulo</label>
+          <input id="input-chapter-number" type="number" placeholder="ex: 1">
+        </div>
+        <button>Buscar</button>
+      </div>
+    </form>
+    <div class="biblical-index"></div>
+    <div class="container-book-name">
+      <h2 id="book-name"></h2>
+    </div>
+    <div class="container-chapter">
+      <h3 id="chapter"></h3>
+    </div>
+    <div id="verses-container"></div>
   </div>
-  <div class="container-chapter">
-    <h2 id="chapter"></h2>
-  </div>
-  <div id="verses-container"></div>
   <script src="./app.js"></script>
 </body>
+
 </html>

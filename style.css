@@ -4,18 +4,68 @@
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.container-book-name, .container-chapter{
+.bible-container{
+  margin: 0 12rem;
+}
+
+.container-book-name, .container-chapter, .inputs-container{
   display: flex;
   justify-content: center;
   margin: 1rem;
+}
+
+form{
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  border-radius: 2rem;
+  margin-top: 1rem;
+}
+
+form button{
+  padding: 1rem;
+  border-radius: .5rem;
+  border: none;
+  background-color: gray;
+  font-size: 1rem;
+}
+
+form button:hover{
+  background-color: rgb(223, 211, 211);
+  cursor: pointer;
+}
+
+.inputs-container{
+  align-items: center;
+}
+
+.search-book-container{
+  padding: 2rem;
+}
+
+.search-title{
+  text-align: center;
 }
 
 #book-name{
   text-transform: uppercase;
 }
 
-#verses-container{
-  margin: 0 10rem;
+input{
+  margin: .5rem;
+  width: 5rem;
+  height: 1.2rem;
+  padding: .3rem;
+  font-size: 1rem;
+}
+
+input::placeholder{
+  font-size: 1rem;
+}
+
+label{
+  font-size: 1.5rem;
 }
 
 span, p{
