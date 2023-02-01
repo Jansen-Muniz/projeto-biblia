@@ -16,9 +16,8 @@
 
 form{
   text-align: center;
-  background-color: black;
+  background-color: rgb(68, 131, 84);
   color: white;
-  padding: 2rem;
   border-radius: 2rem;
   margin-top: 1rem;
 }
@@ -27,12 +26,13 @@ form button{
   padding: 1rem;
   border-radius: .5rem;
   border: none;
-  background-color: gray;
+  background-color: rgb(8, 134, 25);
   font-size: 1rem;
+  color: white;
 }
 
 form button:hover{
-  background-color: rgb(223, 211, 211);
+  background-color: rgb(167, 226, 203);
   cursor: pointer;
 }
 
@@ -70,4 +70,9 @@ label{
 
 span, p{
   margin: 1rem;
+}
+
+.biblical-index{
+  display: flex;
+  text-align: center;
 }

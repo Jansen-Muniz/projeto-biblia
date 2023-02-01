@@ -31,14 +31,15 @@
      versesContainer.innerHTML += versesTemplate
  }
 
+//addVersesIntoDOM('gn', '1')
  
- formSearch.addEventListener('submit', event => {
-   event.preventDefault()
-   
-   const inputBook = event.target.book.value
-   const inputChapter = event.target.chapter.value
-   
-   addVersesIntoDOM(inputBook, inputChapter)
-   
-   formSearch.reset()
- })
+  formSearch.addEventListener('submit', event => {
+    event.preventDefault()
+ 
+    const inputBook = event.target.book.value
+    const inputChapter = event.target.chapter.value
+ 
+    addVersesIntoDOM(inputBook, inputChapter)
+ 
+    formSearch.reset()
+  })
