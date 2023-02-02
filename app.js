@@ -25,21 +25,20 @@
    const versesTemplate = arrayVerses
        .map(item =>
          `<p><span>${item.number} </span>${item.text}</p>`).join('')
-  
-     bookNameBible.textContent = book.name
-     chapterBibleNumber.textContent = `Capítulo ${chapter.number}`
-     versesContainer.innerHTML += versesTemplate
+         
+         bookNameBible.textContent = book.name
+         chapterBibleNumber.textContent = `Capítulo ${chapter.number}`
+         versesContainer.innerHTML += versesTemplate
  }
-
-//addVersesIntoDOM('gn', '1')
  
   formSearch.addEventListener('submit', event => {
     event.preventDefault()
- 
-    const inputBook = event.target.book.value
-    const inputChapter = event.target.chapter.value
- 
-    addVersesIntoDOM(inputBook, inputChapter)
+
+    const inputBookValue = event.target.book.value
+    const inputChapterValue = event.target.chapter.value
+    
+    addVersesIntoDOM(inputBookValue, inputChapterValue)
  
     formSearch.reset()
+    event.target.book.focus() 
   })

@@ -4,19 +4,36 @@
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 .bible-container{
   margin: 0 12rem;
 }
 
-.container-book-name, .container-chapter, .inputs-container{
+.container-book-name,
+.container-chapter,
+.inputs-button-container,
+.container-title-index,
+.title-table-od-container,
+.title-table-nt-container{
   display: flex;
   justify-content: center;
   margin: 1rem;
 }
 
+.inputs-button-container{
+  gap: 2rem;
+}
+
+.inputs-button-container{
+  align-items: center;
+}
+
 form{
   text-align: center;
-  background-color: rgb(68, 131, 84);
+  background-color: rgb(19, 185, 171);
   color: white;
   border-radius: 2rem;
   margin-top: 1rem;
@@ -26,7 +43,7 @@ form button{
   padding: 1rem;
   border-radius: .5rem;
   border: none;
-  background-color: rgb(8, 134, 25);
+  background-color: rgb(8, 84, 134);
   font-size: 1rem;
   color: white;
 }
@@ -36,8 +53,8 @@ form button:hover{
   cursor: pointer;
 }
 
-.inputs-container{
-  align-items: center;
+.container-title-index{
+  margin: 2rem;
 }
 
 .search-book-container{
@@ -72,7 +89,40 @@ span, p{
   margin: 1rem;
 }
 
-.biblical-index{
+.biblical-index-table{
   display: flex;
+  justify-content: center;
   text-align: center;
+  gap: 5rem;
+}
+
+table, th, td{
+  border: .1rem solid #282929;
+  border-collapse: collapse;
+  padding: .4rem;
+}
+
+tr:nth-child(odd){
+  background-color: #96D4D4;
+}
+
+tr:nth-child(even){
+  background-color: #60bbbb;
+}
+
+.back-to-top{
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  text-decoration: none;
+  width: 5rem;
+  height: 5rem;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: aqua;
+  transform: rotate(-90deg);
+  font-size: 1.5rem;
 }

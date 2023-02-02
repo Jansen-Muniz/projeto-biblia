@@ -10,27 +10,33 @@
 </head>
 
 <body>
-  <div class="bible-container">
+  <div id="top" class="bible-container">
     <form data-js="form-search">
       <div class="search-book-container">
         <div class="search-title">
           <h1>Busque um livro da Bíblia</h1>
         </div>
-        <div class="inputs-container">
-          <label for="input-book">Livro</label>
-          <input id="input-book" name="book" type="text" placeholder="ex: gn" autofocus>
-          <label for="input-chapter-number">Capítulo</label>
-          <input id="input-chapter-number" name="chapter" type="number" placeholder="ex: 1">
+        <div class="inputs-button-container">
+          <div>
+            <label for="input-book">Livro</label>
+            <input id="input-book" name="book" type="text" placeholder="ex: gn" autofocus>
+            <label for="input-chapter-number">Capítulo</label>
+            <input id="input-chapter-number" name="chapter" type="number" placeholder="ex: 1">
+          </div>
+          <div>
+            <button>Buscar</button>
+          </div>
         </div>
-        <button>Buscar</button>
       </div>
     </form>
     <div class="container-title-index">
       <h2>ÍNDICE</h2>
     </div>
-    <div class="biblical-index">
+    <div class="biblical-index-table">
       <div class="container-table-old-testament">
-        <h3>Antigo testamento</h3>
+        <div class="title-table-od-container">
+          <h3>Antigo testamento</h3>
+        </div>
         <table>
           <tr>
             <th>Livro</th>
@@ -234,12 +240,152 @@
           </tr>
         </table>
       </div>
-      <table class="container-table-new-testament">
-        <h3>Novo testamento</h3>
-        <th>Livro</th>
-        <th>Abreviação</th>
-        <th>Capítulos</th>
-      </table>
+
+      <div class="container-table-new-testament">
+        <table>
+          <div class="title-table-nt-container">
+            <h3 class="title-table-nt">Novo testamento</h3>
+          </div>
+          <th>Livro</th>
+          <th>Abreviação</th>
+          <th>Capítulos</th>
+          <tr>
+            <td>Mateus</td>
+            <td>Mt</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>Marcos</td>
+            <td>Mc</td>
+            <td>16</td>
+          </tr>
+          <tr>
+            <td>Lucas</td>
+            <td>Lc</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>João</td>
+            <td>Jo</td>
+            <td>21</td>
+          </tr>
+          <tr>
+            <td>Atos dos Apóstolos</td>
+            <td>At</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>Romanos</td>
+            <td>Rm</td>
+            <td>16</td>
+          </tr>
+          <tr>
+            <td>1 Coríntios</td>
+            <td>1Co</td>
+            <td>16</td>
+          </tr>
+          <tr>
+            <td>2 Coríntios</td>
+            <td>2Co</td>
+            <td>13</td>
+          </tr>
+          <tr>
+            <td>Gálatas</td>
+            <td>Gl</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>Efésios</td>
+            <td>Ef</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>Filipenses</td>
+            <td>Fp</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Colossenses</td>
+            <td>Cl</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>1 Tessalonicenses</td>
+            <td>1Ts</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>2 Tessalonicenses</td>
+            <td>2Ts</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>1 Timóteo</td>
+            <td>1Tm</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>2 Timóteo</td>
+            <td>2Tm</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Tito</td>
+            <td>Tt</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Filemom</td>
+            <td>Fm</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Hebreus</td>
+            <td>Hb</td>
+            <td>13</td>
+          </tr>
+          <tr>
+            <td>Tiago</td>
+            <td>Tg</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>1 Pedro</td>
+            <td>1Pe</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>2 Pedro</td>
+            <td>2Pe</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>1 João</td>
+            <td>1 Jo</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>2 João</td>
+            <td>2 Jo</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>3 João</td>
+            <td>3 Jo</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Judas</td>
+            <td>Jd</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Apocalipse</td>
+            <td>Ap</td>
+            <td>22</td>
+          </tr>
+        </table>
+      </div>
     </div>
     <div class="container-book-name">
       <h2 id="book-name"></h2>
@@ -249,6 +395,8 @@
     </div>
     <div id="verses-container"></div>
   </div>
+
+  <a class="back-to-top" href="#">➤</a>
   <script src="./app.js"></script>
 </body>
 
