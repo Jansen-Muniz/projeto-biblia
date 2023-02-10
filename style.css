@@ -20,7 +20,7 @@ html{
 .title-table-nt-container{
   display: flex;
   justify-content: center;
-  margin: 1rem;
+  margin: .5rem;
 }
 
 .inputs-button-container{
@@ -37,6 +37,7 @@ form{
   color: white;
   border-radius: 2rem;
   margin-top: 1rem;
+  padding: .5rem;
 }
 
 form button{
@@ -51,14 +52,6 @@ form button{
 form button:hover{
   background-color: rgb(167, 226, 203);
   cursor: pointer;
-}
-
-.container-title-index{
-  margin: 2rem;
-}
-
-.search-book-container{
-  padding: 2rem;
 }
 
 .search-title{
@@ -93,13 +86,14 @@ span, p{
   display: flex;
   justify-content: center;
   text-align: center;
-  gap: 5rem;
+  gap: 2rem;
 }
 
 table, th, td{
   border: .1rem solid #282929;
   border-collapse: collapse;
-  padding: .4rem;
+  padding: .2rem;
+  font-size: .8rem;
 }
 
 tr:nth-child(odd){

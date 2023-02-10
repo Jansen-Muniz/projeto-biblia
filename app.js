@@ -19,7 +19,7 @@
   }
  }
 
- const addVersesIntoDOM = async (bookName, chapterNumber) => {
+ const getVerses = async (bookName, chapterNumber) => {
    const { book, chapter, verses } = await getBook(bookName, chapterNumber)
    const arrayVerses = verses
    const versesTemplate = arrayVerses
@@ -31,14 +31,17 @@
          versesContainer.innerHTML += versesTemplate
  }
  
-  formSearch.addEventListener('submit', event => {
-    event.preventDefault()
+  formSearch.addEventListener('submit', e => {
+    e.preventDefault()
 
-    const inputBookValue = event.target.book.value
-    const inputChapterValue = event.target.chapter.value
-    
-    addVersesIntoDOM(inputBookValue, inputChapterValue)
- 
+    const inputBookValue = e.target.book.value
+    const inputChapterValue = e.target.chapter.value
+
+    getVerses(inputBookValue, inputChapterValue)
+
     formSearch.reset()
-    event.target.book.focus() 
+    e.target.book.focus()
+    scrollTo(0, 1000)
   })
+
+
