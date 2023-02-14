@@ -4,6 +4,19 @@
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+button{
+  padding: 1rem;
+  border-radius: .5rem;
+  border: none;
+  font-size: 1rem;
+  color: white;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: rgb(167, 226, 203);
+}
+
 html{
   scroll-behavior: smooth;
 }
@@ -41,17 +54,21 @@ form{
 }
 
 form button{
-  padding: 1rem;
-  border-radius: .5rem;
-  border: none;
   background-color: rgb(8, 84, 134);
-  font-size: 1rem;
-  color: white;
 }
 
-form button:hover{
-  background-color: rgb(167, 226, 203);
-  cursor: pointer;
+.clear-button-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;  
+}
+
+.clear-button{
+  background-color: #60bbbb;
+}
+
+.hidden{
+  display: none;
 }
 
 .search-title{
@@ -93,7 +110,7 @@ table, th, td{
   border: .1rem solid #282929;
   border-collapse: collapse;
   padding: .2rem;
-  font-size: .8rem;
+  font-size: 1rem;
 }
 
 tr:nth-child(odd){
