@@ -22,12 +22,13 @@ html{
 }
 
 .bible-container{
-  margin: 0 20rem;
+  max-width: 50%;
+  margin: auto;
 }
 
 .container-book-name,
 .container-chapter,
-.inputs-button-container,
+.inputs-container,
 .container-title-index,
 .title-table-od-container,
 .title-table-nt-container{
@@ -36,11 +37,11 @@ html{
   margin: .5rem;
 }
 
-.inputs-button-container{
+.inputs-container{
   gap: 2rem;
 }
 
-.inputs-button-container{
+.inputs-container{
   align-items: center;
 }
 
@@ -127,4 +128,89 @@ tr:nth-child(even){
   color: aqua;
   transform: rotate(-90deg);
   font-size: 1.5rem;
+}
+
+@media(max-width: 1050px){
+  .bible-container{
+    max-width: 80%;
+  }
+
+  table, th, td{
+    padding: .3rem;
+    font-size: .8rem;
+  }
+
+  .back-to-top{
+    bottom: 1rem;
+    right: 0;
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width: 700px){
+  .bible-container{
+    max-width: 90%;
+  }
+
+  .search-title h1{
+    font-size: 1.5rem;
+  }
+
+  .inputs-container label{
+    font-size: 1rem;
+  }
+
+  button{
+    padding: .8rem;
+    font-size: .8rem;
+  }
+
+  table, th, td{
+    padding: .1rem;
+    font-size: .8rem;
+  }
+
+  .back-to-top{
+    bottom: 1rem;
+    right: 0;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1rem;
+  }
+}
+
+@media(max-width: 590px){
+  .inputs-container label{
+    font-size: .8rem;
+  }
+
+  table, th, td{
+    padding: .1rem;
+    font-size: .5rem;
+  }
+
+  .biblical-index-table{
+    gap: .5rem;
+  }
+
+  .container-title-index h2{
+    font-size: 1rem;
+  }
+
+  .biblical-index-table h3{
+    font-size: 1rem;
+  }
+
+  button{
+    padding: .7rem;
+    font-size: .6rem;
+  }
+
+  input{
+    margin: .2rem;
+    width: 3rem;
+    padding: .3rem;
+  }
 }

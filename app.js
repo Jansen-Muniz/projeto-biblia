@@ -35,5 +35,7 @@
     bookNameBible.textContent = book.name
     chapterBibleNumber.textContent = chapter.number
     
-    versesContainer.textContent = verses.map(verse => `${verse.text}`).join(' ')
+    versesContainer.textContent = verses
+      .reduce((acc, {number, text}) => 
+        acc += ` ${number} ${text}`, '')
 })
