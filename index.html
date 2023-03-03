@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="stylesheet" href="./style.css">
   <title>Document</title>
 </head>
@@ -19,9 +19,9 @@
         <div class="inputs-button-container">
           <div>
             <label for="input-book">Livro</label>
-            <input id="input-book" name="book" type="text" placeholder="ex: gn" autofocus>
+            <input data-js="input-book" id="input-book" name="book" type="text" placeholder="ex: gn" autofocus>
             <label for="input-chapter-number">Capítulo</label>
-            <input id="input-chapter-number" name="chapter" type="text" placeholder="ex: 1">
+            <input data-js="input-chapter" id="input-chapter-number" name="chapter" type="text" placeholder="ex: 1">
           </div>
           <div>
             <button>Buscar</button>
@@ -30,19 +30,23 @@
       </div>
       <span>Pesquise pela Abreviação</span>
     </form>
-    <div class="clear-button-container">
-      <button class="clear-button hidden" data-js="clear-button">Limpar capítulo</button>
-    </div>
+
     <div class="container-book-name">
-      <h2 id="book-name"></h2>
+      <h2 data-js="book-name" id="book-name"></h2>
     </div>
     <div class="container-chapter">
-      <h3 id="chapter"></h3>
+      <h3 data-js="chapter" id="chapter"></h3>
     </div>
-    <div id="verses-container"></div>
+    
+    <div data-js="book-version"></div>
+    <div data-js="book-author"></div>
+    <div data-js="book-group"></div>
+
+    <div data-js="verses-container" id="verses-container"></div>
+
     <div class="container-title-index">
       <h2>ÍNDICE</h2>
-    </div>
+    </div> 
     <div class="biblical-index-table">
       <div class="container-table-old-testament">
         <div class="title-table-od-container">
@@ -400,7 +404,7 @@
     </div>
   </div>
 
-  <a class="back-to-top" href="#">➤</a>
+  <a class="back-to-top" href="#top">➤</a>
   <script src="./app.js"></script>
 </body>
 

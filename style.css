@@ -22,7 +22,7 @@ html{
 }
 
 .bible-container{
-  margin: 0 12rem;
+  margin: 0 20rem;
 }
 
 .container-book-name,
@@ -46,8 +46,7 @@ html{
 
 form{
   text-align: center;
-  background-color: rgb(19, 185, 171);
-  color: white;
+  color: black;
   border-radius: 2rem;
   margin-top: 1rem;
   padding: .5rem;
@@ -55,20 +54,6 @@ form{
 
 form button{
   background-color: rgb(8, 84, 134);
-}
-
-.clear-button-container{
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;  
-}
-
-.clear-button{
-  background-color: #60bbbb;
-}
-
-.hidden{
-  display: none;
 }
 
 .search-title{
@@ -95,8 +80,10 @@ label{
   font-size: 1.5rem;
 }
 
-span, p{
-  margin: 1rem;
+#verses-container{
+  margin-top: 1rem;
+  text-align: justify;
+  line-height: 1.5rem;
 }
 
 .biblical-index-table{
@@ -104,6 +91,10 @@ span, p{
   justify-content: center;
   text-align: center;
   gap: 2rem;
+}
+
+.container-title-index h2{
+  margin-top: 1rem;
 }
 
 table, th, td{
