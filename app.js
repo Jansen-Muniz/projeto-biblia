@@ -27,7 +27,8 @@
 
  formSearchBook.addEventListener('submit', async e => {
     e.preventDefault()
-    const {book, chapter, verses} = await fetchBook(getUrl(e.target.book.value, e.target.chapter.value))
+
+    const {book, chapter, verses} = await fetchBook(getUrl(inputBook.value, inputChapter.value ))
 
     bookAuthor.textContent = `Autor: ${book.author}`
     bookVersion.textContent = `Versão: ${book.version}`
@@ -35,7 +36,10 @@
     bookNameBible.textContent = book.name
     chapterBibleNumber.textContent = chapter.number
     
-    versesContainer.textContent = verses
+    versesContainer.innerHTML = verses
       .reduce((acc, {number, text}) => 
-        acc += ` ${number} ${text}`, '')
+        `${acc}<p>${number} ${text}</p>`, '')
+    
+    e.target.reset()
+    inputBook.focus()
 })

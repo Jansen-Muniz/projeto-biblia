@@ -24,6 +24,7 @@ html{
 .bible-container{
   max-width: 50%;
   margin: auto;
+  margin-bottom: 1rem;
 }
 
 .container-book-name,
@@ -114,9 +115,10 @@ tr:nth-child(even){
 }
 
 .back-to-top{
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  float: right;
+  position: relative;
+  bottom: 1rem;
+  right: 1rem;
   text-decoration: none;
   width: 5rem;
   height: 5rem;
@@ -212,5 +214,47 @@ tr:nth-child(even){
     margin: .2rem;
     width: 3rem;
     padding: .3rem;
+  }
+
+  #verses-container p {
+    font-size: .8rem;
+  }
+}
+
+@media(max-width: 390px){
+  input{
+    width: 2rem;
+    padding: .2rem;
+  }
+
+  input::placeholder{
+    font-size: .7rem;
+  }
+
+  .biblical-index-table h3{
+    font-size: .8rem;
+  }
+}
+
+@media(max-width: 350px){
+  .search-title h1{
+    font-size: 1.2rem;
+  }
+
+  .inputs-container label{
+    font-size: .6rem;
+  }
+
+  input{
+    width: 1.8rem;
+  }
+
+  input::placeholder{
+    font-size: .7rem;
+  }
+
+  button{
+    padding: .6rem;
+    font-size: .5rem;
   }
 }
