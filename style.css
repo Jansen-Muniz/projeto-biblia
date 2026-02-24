@@ -1,117 +1,199 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
   min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
   display: flex;
-  justify-content: center;
-  align-items: start;
+  flex-direction: column;
+  align-items: center;
   padding: 40px 20px;
   color: #333;
 }
 
+body.dark {
+  background: linear-gradient(135deg, #141e30, #243b55);
+}
+
+body.dark .theme-icon {
+  background: #2b2b2b;
+  color: #fff;
+}
+
+body.dark .container {
+  background: #1e1e1e;
+  color: #f1f1f1;
+}
+
+body.dark h1 {
+  color: #ffffff;
+}
+
+body.dark .book-info {
+  color: #ccc;
+}
+
+body.dark .search-form select {
+  background: #2b2b2b;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+body.dark .search-form button {
+  background: #444;
+}
+
+body.dark .search-form button:hover {
+  background: #666;
+}
+
+body.dark .verse-card {
+  background: #2b2b2b;
+  border-left: 5px solid #4da3ff;
+}
+
+body.dark .verse-card:hover {
+  background: #333;
+}
+
+body.dark .verse-number {
+  color: #4da3ff;
+}
+
+body,
+.container,
+.verse-card,
+.search-form button {
+  transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+/* Container principal */
 .container {
-  background: #ffffff;
   width: 100%;
-  max-width: 800px;
-  padding: 30px;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 40px;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-header {
+/* Título */
+h1 {
   text-align: center;
   margin-bottom: 30px;
-}
-
-header h1 {
   font-size: 28px;
-  margin-bottom: 8px;
+  color: #1e3c72;
 }
 
-header p {
-  color: #666;
-  font-size: 14px;
-}
-
+/* Formulário */
 .search-form {
   display: flex;
-  gap: 12px;
-  margin-bottom: 30px;
+  gap: 15px;
   flex-wrap: wrap;
   justify-content: center;
-  /* 🔥 centraliza horizontalmente */
-  align-items: center;
-  /* 🔥 alinha verticalmente */
+  margin-bottom: 30px;
 }
 
 .search-form select,
 .search-form button {
-  min-width: 180px;
-  padding: 12px 15px;
+  padding: 12px 18px;
   border-radius: 10px;
   border: 1px solid #ddd;
-  font-size: 14px;
-}
-
-.search-form button {
-  padding: 12px 20px;
-  border-radius: 10px;
-  border: none;
-  background: #2a5298;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
+  font-size: 15px;
+  min-width: 180px;
   transition: 0.3s;
 }
 
-.search-form button:hover {
+/* Botão */
+.search-form button {
   background: #1e3c72;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-form button:hover {
+  background: #16305c;
   transform: translateY(-2px);
 }
 
-.result h2 {
+/* Informações do livro */
+.book-info {
+  text-align: center;
   margin-bottom: 20px;
-  color: #1e3c72;
+  color: #555;
 }
 
+/* Versículos */
 .verses {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top: 20px;
 }
 
 .verse-card {
-  background: #f7f9fc;
-  padding: 15px;
+  background: #f8f9fa;
+  padding: 18px;
   border-radius: 12px;
-  border-left: 4px solid #2a5298;
-  transition: 0.3s;
+  border-left: 5px solid #1e3c72;
+  transition: 0.2s;
 }
 
 .verse-card:hover {
-  background: #eef2f8;
+  background: #eef2f7;
+  transform: translateX(5px);
 }
 
 .verse-number {
   font-weight: bold;
-  color: #2a5298;
-  margin-right: 5px;
+  color: #1e3c72;
 }
 
+/* Botão de tema no canto superior direito */
+.theme-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ffffff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+}
+
+.theme-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Precisa deixar o container relativo */
+.container {
+  position: relative;
+}
+
+/* Responsivo */
 @media (max-width: 600px) {
-  .search-form {
-    flex-direction: column;
+  .container {
+    padding: 25px;
   }
 
+  .search-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-form select,
   .search-form button {
     width: 100%;
+    max-width: 300px;
   }
 }

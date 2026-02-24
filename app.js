@@ -124,3 +124,30 @@ formSearchBook.addEventListener('submit', async (e) => {
   formSearchBook.reset()
   inputBook.focus()
 })
+
+const toggleButton = document.getElementById('toggle-theme')
+
+const enableDarkMode = () => {
+  document.body.classList.add('dark')
+  localStorage.setItem('theme', 'dark')
+  toggleButton.textContent = '☀️'
+}
+
+const disableDarkMode = () => {
+  document.body.classList.remove('dark')
+  localStorage.setItem('theme', 'light')
+  toggleButton.textContent = '🌙'
+}
+
+toggleButton.addEventListener('click', () => {
+  if (document.body.classList.contains('dark')) {
+    disableDarkMode()
+  } else {
+    enableDarkMode()
+  }
+})
+
+// Mantém tema salvo ao recarregar página
+if (localStorage.getItem('theme') === 'dark') {
+  enableDarkMode()
+}
