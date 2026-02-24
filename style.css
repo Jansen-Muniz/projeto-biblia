@@ -82,6 +82,10 @@ body,
 }
 
 /* Título */
+header {
+  text-align: center;
+}
+
 h1 {
   text-align: center;
   margin-bottom: 30px;
@@ -95,7 +99,7 @@ h1 {
   gap: 15px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 30px;
+  margin: 30px;
 }
 
 .search-form select,
