@@ -1,45 +1,126 @@
- const versesContainer = document.querySelector('[data-js="verses-container"]')
- const bookNameBible = document.querySelector('[data-js="book-name"]')
- const chapterBibleNumber = document.querySelector('[data-js="chapter"]')
- const formSearchBook = document.querySelector('[data-js="form-search"]') 
- const inputBook = document.querySelector('[data-js="input-book"]')
- const inputChapter = document.querySelector('[data-js="input-chapter"]')
- const bookAuthor = document.querySelector('[data-js="book-author"]')
- const bookVersion = document.querySelector('[data-js="book-version"]')
- const bookGroup = document.querySelector('[data-js="book-group"]')
+const versesContainer = document.querySelector('[data-js="verses"]')
+const bookTitle = document.querySelector('[data-js="book-title"]')
+const formSearchBook = document.querySelector('[data-js="form-search-book"]')
+const inputBook = document.querySelector('[data-js="input-book"]')
+const inputChapter = document.querySelector('[data-js="input-chapter"]')
+const bookSelect = document.querySelector('[data-js="input-book"]')
+const chapterSelect = document.querySelector('[data-js="input-chapter"]')
 
- const getUrl = (book, chapter) => `https://www.abibliadigital.com.br/api/verses/ra/${book}/${chapter}`
+bookSelect.addEventListener('change', () => {
+  const selectedBook = bookSelect.value
 
- const fetchBook = async url => {
-    try{
-      const response = await fetch(url)
+  if (!selectedBook) {
+    chapterSelect.innerHTML = '<option value="">Selecione o capítulo</option>'
+    chapterSelect.disabled = true
+    return
+  }
 
-      if(!response.ok){
-        throw new Error('Não foi possível obter as informações')
-      }
+  loadChapters(selectedBook)
+})
 
-      const bookData = await response.json()
-      return bookData
-    }catch(err){
-      alert(err.message)
+const loadChapters = async (book) => {
+  chapterSelect.innerHTML = '<option value="">Carregando...</option>'
+  chapterSelect.disabled = true
+
+  try {
+    const response = await fetch(`./data/${book}.json`)
+    const bookData = await response.json()
+
+    const chapters = Object.keys(bookData)
+
+    chapterSelect.innerHTML = '<option value="">Selecione o capítulo</option>'
+
+    chapters.forEach(chapter => {
+      const option = document.createElement('option')
+      option.value = chapter
+      option.textContent = chapter
+      chapterSelect.appendChild(option)
+    })
+
+    chapterSelect.disabled = false
+
+  } catch (err) {
+    chapterSelect.innerHTML = '<option value="">Erro ao carregar</option>'
+  }
+}
+
+const formatBookName = (name) => {
+  return name
+    .replace(/(\d+)/, '$1 ')
+    .replace(/(^\w|\s\w)/g, letter => letter.toUpperCase())
+}
+
+const loadBooks = async () => {
+  const response = await fetch('./data/books.json')
+  const books = await response.json()
+
+  books.forEach(book => {
+    const option = document.createElement('option')
+    option.value = book
+    option.textContent = formatBookName(book)
+    bookSelect.appendChild(option)
+  })
+}
+
+loadBooks()
+
+const showError = (message) => {
+  versesContainer.innerHTML = `
+    <div class="verse-card">
+      <strong>Erro:</strong> ${message}
+    </div>
+  `
+}
+
+const loadBook = async (book) => {
+  try {
+    const response = await fetch(`./data/${book}.json`)
+
+    if (!response.ok) {
+      throw new Error('Livro não encontrado.')
     }
- }
 
- formSearchBook.addEventListener('submit', async e => {
-    e.preventDefault()
+    return await response.json()
+  } catch (err) {
+    showError(err.message)
+    return null
+  }
+}
 
-    const {book, chapter, verses} = await fetchBook(getUrl(inputBook.value, inputChapter.value ))
+formSearchBook.addEventListener('submit', async (e) => {
+  e.preventDefault()
 
-    bookAuthor.textContent = `Autor: ${book.author}`
-    bookVersion.textContent = `Versão: ${book.version}`
-    bookGroup.textContent = `Grupo: ${book.group}`
-    bookNameBible.textContent = book.name
-    chapterBibleNumber.textContent = chapter.number
-    
-    versesContainer.innerHTML = verses
-      .reduce((acc, {number, text}) => 
-        `${acc}<p>${number} ${text}</p>`, '')
-    
-    e.target.reset()
-    inputBook.focus()
+  const book = bookSelect.value
+  const chapter = chapterSelect.value
+
+  if (!book || !chapter) {
+    showError('Preencha livro e capítulo.')
+    return
+  }
+
+  versesContainer.innerHTML = `<div class="verse-card">Carregando...</div>`
+
+  const bookData = await loadBook(book)
+  if (!bookData) return
+
+  if (!bookData[chapter]) {
+    showError('Capítulo não encontrado.')
+    return
+  }
+
+  const verses = bookData[chapter]
+
+  bookTitle.textContent = `${book.toUpperCase()} ${chapter}`
+
+  versesContainer.innerHTML = Object.entries(verses)
+    .map(([number, text]) => `
+      <div class="verse-card">
+        <span class="verse-number">${number}</span>
+        ${text}
+      </div>
+    `)
+    .join('')
+
+  formSearchBook.reset()
+  inputBook.focus()
 })

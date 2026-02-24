@@ -1,260 +1,117 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
   margin: 0;
   padding: 0;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-sizing: border-box;
 }
 
-button{
-  padding: 1rem;
-  border-radius: .5rem;
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 40px 20px;
+  color: #333;
+}
+
+.container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #666;
+  font-size: 14px;
+}
+
+.search-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* 🔥 centraliza horizontalmente */
+  align-items: center;
+  /* 🔥 alinha verticalmente */
+}
+
+.search-form select,
+.search-form button {
+  min-width: 180px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.search-form button {
+  padding: 12px 20px;
+  border-radius: 10px;
   border: none;
-  font-size: 1rem;
+  background: #2a5298;
   color: white;
-}
-
-button:hover{
+  font-weight: 600;
   cursor: pointer;
-  background-color: rgb(167, 226, 203);
+  transition: 0.3s;
 }
 
-html{
-  scroll-behavior: smooth;
+.search-form button:hover {
+  background: #1e3c72;
+  transform: translateY(-2px);
 }
 
-.bible-container{
-  max-width: 50%;
-  margin: auto;
-  margin-bottom: 1rem;
+.result h2 {
+  margin-bottom: 20px;
+  color: #1e3c72;
 }
 
-.container-book-name,
-.container-chapter,
-.inputs-container,
-.container-title-index,
-.title-table-od-container,
-.title-table-nt-container{
+.verses {
   display: flex;
-  justify-content: center;
-  margin: .5rem;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.inputs-container{
-  gap: 2rem;
+.verse-card {
+  background: #f7f9fc;
+  padding: 15px;
+  border-radius: 12px;
+  border-left: 4px solid #2a5298;
+  transition: 0.3s;
 }
 
-.inputs-container{
-  align-items: center;
+.verse-card:hover {
+  background: #eef2f8;
 }
 
-form{
-  text-align: center;
-  color: black;
-  border-radius: 2rem;
-  margin-top: 1rem;
-  padding: .5rem;
+.verse-number {
+  font-weight: bold;
+  color: #2a5298;
+  margin-right: 5px;
 }
 
-form button{
-  background-color: rgb(8, 84, 134);
-}
-
-.search-title{
-  text-align: center;
-}
-
-#book-name{
-  text-transform: uppercase;
-}
-
-input{
-  margin: .5rem;
-  width: 5rem;
-  height: 1.2rem;
-  padding: .3rem;
-  font-size: 1rem;
-}
-
-input::placeholder{
-  font-size: 1rem;
-}
-
-label{
-  font-size: 1.5rem;
-}
-
-#verses-container{
-  margin-top: 1rem;
-  text-align: justify;
-  line-height: 1.5rem;
-}
-
-.biblical-index-table{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  gap: 2rem;
-}
-
-.container-title-index h2{
-  margin-top: 1rem;
-}
-
-table, th, td{
-  border: .1rem solid #282929;
-  border-collapse: collapse;
-  padding: .2rem;
-  font-size: 1rem;
-}
-
-tr:nth-child(odd){
-  background-color: #96D4D4;
-}
-
-tr:nth-child(even){
-  background-color: #60bbbb;
-}
-
-.back-to-top{
-  float: right;
-  position: relative;
-  bottom: 1rem;
-  right: 1rem;
-  text-decoration: none;
-  width: 5rem;
-  height: 5rem;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  color: aqua;
-  transform: rotate(-90deg);
-  font-size: 1.5rem;
-}
-
-@media(max-width: 1050px){
-  .bible-container{
-    max-width: 80%;
+@media (max-width: 600px) {
+  .search-form {
+    flex-direction: column;
   }
 
-  table, th, td{
-    padding: .3rem;
-    font-size: .8rem;
-  }
-
-  .back-to-top{
-    bottom: 1rem;
-    right: 0;
-    width: 5rem;
-    height: 5rem;
-    font-size: 1.5rem;
-  }
-}
-
-@media(max-width: 700px){
-  .bible-container{
-    max-width: 90%;
-  }
-
-  .search-title h1{
-    font-size: 1.5rem;
-  }
-
-  .inputs-container label{
-    font-size: 1rem;
-  }
-
-  button{
-    padding: .8rem;
-    font-size: .8rem;
-  }
-
-  table, th, td{
-    padding: .1rem;
-    font-size: .8rem;
-  }
-
-  .back-to-top{
-    bottom: 1rem;
-    right: 0;
-    width: 3rem;
-    height: 3rem;
-    font-size: 1rem;
-  }
-}
-
-@media(max-width: 590px){
-  .inputs-container label{
-    font-size: .8rem;
-  }
-
-  table, th, td{
-    padding: .1rem;
-    font-size: .5rem;
-  }
-
-  .biblical-index-table{
-    gap: .5rem;
-  }
-
-  .container-title-index h2{
-    font-size: 1rem;
-  }
-
-  .biblical-index-table h3{
-    font-size: 1rem;
-  }
-
-  button{
-    padding: .7rem;
-    font-size: .6rem;
-  }
-
-  input{
-    margin: .2rem;
-    width: 3rem;
-    padding: .3rem;
-  }
-
-  #verses-container p {
-    font-size: .8rem;
-  }
-}
-
-@media(max-width: 390px){
-  input{
-    width: 2rem;
-    padding: .2rem;
-  }
-
-  input::placeholder{
-    font-size: .7rem;
-  }
-
-  .biblical-index-table h3{
-    font-size: .8rem;
-  }
-}
-
-@media(max-width: 350px){
-  .search-title h1{
-    font-size: 1.2rem;
-  }
-
-  .inputs-container label{
-    font-size: .6rem;
-  }
-
-  input{
-    width: 1.8rem;
-  }
-
-  input::placeholder{
-    font-size: .7rem;
-  }
-
-  button{
-    padding: .6rem;
-    font-size: .5rem;
+  .search-form button {
+    width: 100%;
   }
 }
